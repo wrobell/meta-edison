@@ -1,54 +1,23 @@
-This README file contains information on building the meta-edison
-BSP layer, and booting the images contained in the /binary directory.
-Please see the corresponding sections below for details.
+Linux 4.2 for Edison.
+
+Status: kernel starts, but no eMMC - no partitions are visible and boot fails
+
+    sdhci-pci 0000:00:01.0: SDHCI controller found [8086:1190] (rev 1)
+    sdhci-pci: probe of 0000:00:01.0 failed with error -16
 
 
-Dependencies
+Installation
 ============
+1. Build Yocto with this meta layer for 'edison' machine.
+2. Download and unpack Edison installer for Linux.
+3. Overwrite the following files
 
-This layer depends on:
+   $YOCTO_DEPLOY_DIR/images/edison/u-boot-envs/edison-blank.bin             u-boot-envs/edison-blankcdc.bin
+   $YOCTO_DEPLOY_DIR/images/edison/u-boot-edison.bin                        u-boot-edison.bin                         
+   $YOCTO_DEPLOY_DIR/images/edison/u-boot-edison.img                        u-boot-edison.img                          
+   $YOCTO_DEPLOY_DIR/images/edison/core-image-minimal-edison-edison.ext4    edison-image-edison.ext4
+   $YOCTO_DEPLOY_DIR/images/edison/core-image-minimal-edison-edison.hddimg  edison-image-edison.hddimg
 
-  URI: git://git.openembedded.org/bitbake
-  branch: master
+4. Run 'flashall.sh'.
 
-  URI: git://git.openembedded.org/openembedded-core
-  layers: meta
-  branch: master
 
-Patches
-=======
-
-Please submit any patches against this BSP to the Yocto mailing list
-(yocto@yoctoproject.org) and cc: the maintainer:
-
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
-
- Booting the images in /binary
-=================================
-
-This BSP can build bootable live images, which can be used to directly
-boot off of a USB flash drive.
-
-Under Linux, insert a USB flash drive.  Assuming the USB flash drive
-takes device /dev/sdf, use dd to copy the live image to it.  For
-example:
-
-# dd if=image-edison-20101207053738.hddimg of=/dev/sdf
-# sync
-# eject /dev/sdf
-
-This should give you a bootable USB flash device.  Insert the device
-into a bootable USB socket on the target, and power on.
-
-If you want to ssh into the system, you can use the root terminal to
-ifconfig the IP address and use that to ssh in.  The root password is
-empty, so to log in type 'root' for the user name and hit 'Enter' at
-the Password prompt: and you should be in.
-
-----
-
-If you find you're getting corrupt images on the USB (it doesn't show
-the syslinux boot: prompt, or the boot: prompt contains strange
-characters), try doing this first:
-
-# dd if=/dev/zero of=/dev/sdf bs=1M count=512
