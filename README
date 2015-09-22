@@ -12,11 +12,11 @@ Installation
 2. Download and unpack Edison installer for Linux.
 3. Overwrite the following files
 
-   $YOCTO_DEPLOY_DIR/images/edison/u-boot-envs/edison-blank.bin             u-boot-envs/edison-blankcdc.bin
-   $YOCTO_DEPLOY_DIR/images/edison/u-boot-edison.bin                        u-boot-edison.bin                         
-   $YOCTO_DEPLOY_DIR/images/edison/u-boot-edison.img                        u-boot-edison.img                          
-   $YOCTO_DEPLOY_DIR/images/edison/core-image-minimal-edison-edison.ext4    edison-image-edison.ext4
-   $YOCTO_DEPLOY_DIR/images/edison/core-image-minimal-edison-edison.hddimg  edison-image-edison.hddimg
+   u-boot-envs/edison-blank.bin             u-boot-envs/edison-blankcdc.bin
+   u-boot-edison.bin                        u-boot-edison.bin                         
+   u-boot-edison.img                        u-boot-edison.img                          
+   core-image-minimal-edison-edison.ext4    edison-image-edison.ext4
+   core-image-minimal-edison-edison.hddimg  edison-image-edison.hddimg
 
 4. Run 'flashall.sh'.
 
