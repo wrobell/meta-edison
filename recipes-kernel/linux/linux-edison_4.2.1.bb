@@ -5,13 +5,11 @@ inherit kernel
 
 COMPATIBLE_MACHINE = "(edison)"
 
-LINUX_VERSION = "4.2"
+LINUX_VERSION = "4.2.1"
 LINUX_VERSION_EXTENSION = ".0"
 S = "${WORKDIR}/linux-${LINUX_VERSION}"
 
 SRC_URI = "https://www.kernel.org/pub/linux/kernel/v4.x/linux-${LINUX_VERSION}.tar.xz"
 SRC_URI += "file://defconfig"
-SRC_URI[md5sum] = "3d5ea06d767e2f35c999eeadafc76523"
-SRC_URI[sha256sum] = "cf20e044f17588d2a42c8f2a450b0fd84dfdbd579b489d93e9ab7d0e8b45dbeb"
-#SRC_URI[md5sum] = "fe9dc0f6729f36400ea81aa41d614c37"
-#SRC_URI[sha256sum] = "caf51f085aac1e1cea4d00dbbf3093ead07b551fc07b31b2a989c05f8ea72d9f"
+SRC_URI[md5sum] = "2a538d1dac3f5426c7a8ab8ef20e95c2"
+SRC_URI[sha256sum] = "7fdf35bf364cc88a9797dac0bc6c0f9951ae031c1d937f61583a649887bb8dac"
