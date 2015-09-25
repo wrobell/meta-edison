@@ -1,10 +1,6 @@
-Linux 4.2 for Edison.
+Linux 4.3 for Edison.
 
-Status: kernel starts, but no eMMC - no partitions are visible and boot fails
-
-    sdhci-pci 0000:00:01.0: SDHCI controller found [8086:1190] (rev 1)
-    sdhci-pci: probe of 0000:00:01.0 failed with error -16
-
+Status: boots, no i2c, no wifi, no bluetooth.
 
 Installation
 ============
